@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Hello! Your form works, great!</h2>
+        <h2>Only one further step...</h2>
+
+                            <p class="tile-title">Setup form</p>
+                            <p class="tile-subtitle">Your form works, great!</p>
+
+                            <p class="tile-title">Verify E-Mail</p>
+                            <p class="tile-subtitle">Your form works, great!</p>
+
+                            <p class="tile-title">Profit!</p>
+                            <p class="tile-subtitle">Send Mails!</p>
+
+
+            <h4 class="empty-title">Please check `{{ verify_email }}` for the verification mail</h4>
+            <p class="empty-subtitle">Click the button to start a conversation.</p>
+            <div class="empty-action">
+                <button class="btn btn-primary">Send a message</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

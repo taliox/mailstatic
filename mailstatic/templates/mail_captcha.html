@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script type="application/javascript">
+    var onSuccess = function(response) {
+        console.log("resp", response);
+        document.getElementById("form").submit();
+    };
+</script>
+<style type="text/css">
+    #js-recaptcha {
+        text-align:center;
+        display:inline-block
+    }
+</style>
+
+{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column col-8 centered">
+        <div class="empty">
+            <div class="empty-icon">
+                <i class="icon icon-people"></i>
+            </div>
+            <h4 class="empty-title">One step..</h4>
+
+            <p class="empty-subtitle">Please help us fighting spam by following the directions below</p>
+
+            <form action="{{ url_for('sendmail', uuid=message.message_uuid) }}" method="post" id="form">
+                <div id="js-recaptcha" class="g-recaptcha" data-callback="onSuccess" data-sitekey="{{ config.RECAPTCHA_SITEKEY }}"></div>
+                <br />
+                {#
+                sitekey 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+                <input type="hidden" name="name" value="{{ message.name }}" />
+                <input type="hidden" name="replyto" value="{{ message.replyto }}" />
+                <input type="hidden" name="message" value="{{ message.message }}" />
+                {% if message.next %}
+                <input type="hidden" name="next" value="{{ message.next }}" />
+                {% endif %}
+                {% if message.subject %}
+                <input type="hidden" name="subject" value="{{ message.subject }}" />
+                {% endif %}
+                {% if message.cc %}
+                <input type="hidden" name="cc" value="{{ message.cc }}" />
+                {% endif %}
+                {% if message.language %}
+                <input type="hidden" name="language" value="{{ message.language }}" />
+                {% endif %}
+                #}
+                <input type="hidden" name="message_id" value="{{ message.message_uuid }}" />
+
+                <input type="submit" class="btn btn-primary" value="Submit" style="display: none">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

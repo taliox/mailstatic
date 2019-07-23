@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "41811:5000"
+    env_file: web.env
+    depends_on:
+      - db
+    volumes:
+      - ./:/opt/webapp
+    command: python runserver.py
+  db:
+    image: postgres:latest
+    expose:
+      - "5432"
+    env_file: db.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+    expose:
+      - "6379"
+volumes:
+  pgdata:

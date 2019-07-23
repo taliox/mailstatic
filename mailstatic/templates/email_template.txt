@@ -1,0 +1,10 @@
+Name: {{ message.name }}
+From: {{ message.replyto }}
+
+Message:
+{{ message.message }}
+
+
+
+------------------------
+Send by https://mailstatic.net

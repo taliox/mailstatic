@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="columns">
+    <div class="column col-8 centered">
+        {#
+        <div class="toast toast-success">
+            Your mail was successfully verified!</strong>
+        </div>
+        #}
+        <div class="empty">
+            <div class="empty-icon"><i class="icon icon-check"></i></div>
+            <h4 class="empty-title">Your mail was successfully verified!</h4>
+            <p class="empty-subtitle">Now lets get started</p>
+            <div class="empty-action">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Mailstatic Form Example
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!-- Add your Mail-Address  -->
+    <form action="your@mailaddress.com" method="POST">
+        <p>
+            <label for="name-input">Name</label>
+            <input placeholder="Name" id="name-input" name="name" required="" type="text">
+        </p>
+        <p>
+            <label for="email-input">Email</label>
+            <input class="form-control" placeholder="Email" id="email-input" name="replyto" required="" type="email">
+        </p>
+        <textarea class="form-control" rows="5" id="message-input" name="message"></textarea>
+        <br>
+        <input value="Send" type="submit">
+    </form>
+</body>
+
+</html>

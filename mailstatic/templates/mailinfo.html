@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="columns">
+    <div class="column col-8 centered">
+        <div class="toast toast-primary">
+            Your mail was successfully sent to <strong>{{ message.email.address }}</strong>
+        </div>
+        <div class="empty">
+            <div class="empty-icon"><i class="icon icon-check"></i></div>
+            <h4 class="empty-title">Your message from {{ message.time_send }}</h4>
+            <p class="empty-subtitle">{{ message.message }}</p>
+            <div class="empty-action">
+                <a href="" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

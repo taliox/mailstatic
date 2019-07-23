@@ -1,0 +1,127 @@
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  color: #3C4450;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  font-size: 1.4rem;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+
+h1, h2{
+  color: #255e85;
+  font-weight: 400;
+}
+
+#wrapper{
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+header{
+  text-align: center;
+}
+
+header h1{
+  margin: 5px 0 10px;
+}
+
+main{
+  margin: 4rem auto;
+  width: 60rem;
+}
+
+code{
+  display: block;
+  padding: 1rem 2rem;
+  background-color: #3C4450;
+  color: #E2EAF8;
+}
+
+.indented{
+  margin-left: 3rem;
+}
+
+.logo-container{
+    position: relative;
+    font-size: 5px;
+    margin: 10px auto 0;
+    display: inline-block;
+}
+
+.logo {
+    color: #255e85;
+    width: 15em;
+    height: 10em;
+    border-radius: 1em;
+    border: solid 1em currentColor;
+    transition: border 0.4s ease;
+  }
+
+  .logo:before, .logo:after{
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    background-color: currentColor;
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+    transition: border 0.4s, width 0.4s, height 0.1s, left 0.4s, top 0.4s, transform 0.5s;
+  }
+  
+  .logo:before {
+    left: 7.3em;
+    top: -3em;
+    width: 1em;
+    height: 9em;
+    -webkit-transform: rotate(-54deg);
+    transform: rotate(-54deg);
+  }
+  
+  .logo:after {
+    left: 6.7em;
+    top: -3em;
+    width: 1em;
+    height: 9em;
+    -webkit-transform: rotate(54deg);
+    transform: rotate(54deg);
+  }
+  
+  .logo:hover:before, .logo:hover:after {
+    width: 0;
+    height: 0;
+    border-radius: 0px;
+    background-color: transparent;
+    -webkit-transform-origin:  	50% 50% 0;
+            transform-origin:  	50% 50% 0;
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  .logo:hover:before {
+    top: -1em;
+    left: 4.5em;
+    border-right: solid 4em currentColor;
+    border-top: solid 7em transparent;
+  }
+  .logo:hover:after {
+    top: 4em;
+    left: 6.5em;
+    border-left: solid 4em currentColor;
+    border-bottom: solid 7em transparent;
+  }
+  
+  .logo:hover{
+    border-color: transparent;
+  }
