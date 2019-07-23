@@ -27,7 +27,7 @@ Also there is a configurable ratelimit set for every endpoint which is capable o
 
 ## Server Setup
 
-There are to ways to run the server. But in any case you should make sure the server is configured correctly.
+There are two ways to run the server. But in any case you should make sure the server is configured correctly.
 
 The `web-example.env` provides neccessary environment variables that the server uses to process certain actions:
 
