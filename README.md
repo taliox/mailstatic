@@ -52,7 +52,7 @@ After providing the necessary information you can start the server.
 2. Run `pip install -r .\requirements.txt` to install neccessary dependencies (in case it's not working try `python -m pip install -r .\requirements.txtpip install -r .\requirements.txt`).
 3. Run `python .\runserver.py` to boot the server.
 4. You should see the following message `Running on http://[::]:5000/ (Press CTRL+C to quit)`.
-5. If you want to start the production server, start it with gunicorn:  `pipenv run pipenv run gunicorn mailstatic:app --bind 0.0.0.0:5000`. It may be a good idea [to use a reverse-proxy](http://docs.gunicorn.org/en/stable/deploy.html) like nginx in front of it to terminate SSL and buffer slow requests. Checkout the example folder for configurations.
+5. If you want to start the production server, start it with gunicorn:  `pipenv run pipenv run gunicorn mailstatic:app --bind 0.0.0.0:5000`. It may be a good idea [to use a reverse-proxy](http://docs.gunicorn.org/en/stable/deploy.html) like nginx in front of it to terminate SSL and buffer slow requests. Checkout the project for configuration examples.
 
 ### Using docker
 
