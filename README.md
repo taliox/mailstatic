@@ -78,7 +78,7 @@ To setup a HTML form on your webpage simply copy the following code:
 All input of this form is now forwarded to your server.
 
 # Contributing
-Pull requests for improvements of the library or it's documentation are also highly appreciated.
+Pull requests for improvements of the project or it's documentation are also highly appreciated.
 
 # Licenses
-This library and its content is released under the [GNU General Public License v3.0.](https://choosealicense.com/licenses/gpl-3.0/).
+This library and its content is released under the [MIT License](https://choosealicense.com/licenses/mit/).
