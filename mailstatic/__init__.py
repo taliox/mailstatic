@@ -14,9 +14,9 @@ app = Flask(__name__)
 app.config.from_object("mailstatic.config.DevelopmentConfig")
 app.config.from_envvar("MAILSTATIC_CONFIG", silent=True)
 
-for k in ['RECAPTCHA_SITEKEY', 'RECAPTCHA_SECRET', 'SMTP_SERVER', 'SMTP_USER', 'SMTP_PASSWORD', 'SERVER_ADDRESS', 'DATABASE_URI']:
+for k in ['RECAPTCHA_SITEKEY', 'RECAPTCHA_SECRET', 'SMTP_SERVER', 'SMTP_USER', 'SMTP_PASSWORD', 'SERVER_ADDRESS',
+          'DATABASE_URI', 'FROM_ADDRESS', 'USE_CAPTCHA', 'USE_RATELIMIT']:
     if k in os.environ:
         app.config[k] = os.environ[k]
-
 
 import mailstatic.views

@@ -1,42 +1,14 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="columns">
-    <div class="column col-6">
-        <div class="logo"></div>
-        <h1>Mailstatic</h1>
-        <h4>Send mails form static homepages</h4>
+{% extends "base.html" %} {% block content %}
+<p>Just send your form to this URL and it'll be forwarded to your email. No PHP, Javascript or sign up required — perfect for
+    static sites!</p>
+<h3>Example</h3>
+<code>
+    &lt;form action="yourdomain/s/your@mail.com" method="POST"&gt;<br>
+    <div class="indented">
+        &lt;input name="name" required="" type="text"&gt;<br>
+        &lt;input name="replyto" required="" type="email"&gt;<br>
+        &lt;textarea name="message"&gt;&lt;/textarea&gt;<br>
+        &lt;input value="Send" type="submit"&gt;<br>
     </div>
-    <div class="column col-1">
-
-    </div>
-    <div class="column col-4">
-        <h1>&nbsp;</h1>
-        <h4>Test it!</h4>
-    </div>
-</div>
-<div class="columns">
-    <div class="column col-6">
-        Just send your form to our URL and we'll forward it to your email. No PHP, Javascript or sign up required — perfect for static sites!
-    </div>
-    <div class="column col-1">
-
-    </div>
-    <div class="column col-4">
-        <form action="{{ url_for('send_mail', email='robert@taliox.io') }}" method="post">
-            <div class="form-group">
-                <label class="form-label" for="input-name">Name</label>
-                <input type="text" class="form-input" id="input-name" name="name" placeholder="Your name" />
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="input-email">Your mail</label>
-                <input class="form-input" id="input-email" type="email" name="replyto" placeholder="Your mail" />
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="input-message">Message</label>
-                <textarea class="form-input" id="input-message" name="message" style="height: 100px"></textarea>
-            </div>
-            <input class="btn btn-primary float-right" type="submit" value="Send" />
-        </form>
-    </div>
-</div>
-{% endblock %}
+    &lt;/form&gt;
+</code> {% endblock %}

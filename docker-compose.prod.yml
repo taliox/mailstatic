@@ -9,7 +9,7 @@ services:
       - db
     volumes:
       - ./:/opt/webapp
-    command: python runserver.py
+    command: gunicorn mailstatic:app --bind 0.0.0.0:5000
   db:
     image: postgres:latest
     env_file: db.env

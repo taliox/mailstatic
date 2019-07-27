@@ -6,6 +6,7 @@
 # Robert Kamuda, robert@taliox.io
 
 from redis import StrictRedis
+from mailstatic import app
 
 redis = StrictRedis(host="redis")
 
@@ -18,7 +19,10 @@ class LimitExceeded(Exception):
         self.ttl = ttl
 
 
-def limit_by_key(key, limit, ttl=60*60):
+def     limit_by_key(key, limit, ttl=60*60):
+    if app.config['USE_RATELIMIT'] == 'false':
+        return
+
     r = redis.get(key) or 0
     if int(r) >= limit:
         raise LimitExceeded(key, limit, redis.ttl(key), ttl)

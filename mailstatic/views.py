@@ -20,18 +20,18 @@ from mailstatic.utils.limit import redis, limit_by_key, LimitExceeded
 def shutdown_session(exception=None):
     db_session.remove()
 
+
 @app.errorhandler(NoResultFound)
 def handle_noresult(e):
-    return "oho", 404
+    return "Not found", 404
+
+
+@app.errorhandler(LimitExceeded)
+def handle_limit_exceeded(e):
+    return "You got into a ratelimit.", 403
 
 
 @app.route('/')
-def oldindex():
-    return render_template("wip.html")
-    # return render_template("index.html")
-
-
-@app.route('/old/')
 def index():
     return render_template("index.html")
 
@@ -49,7 +49,6 @@ def check_usercaptcha(response):
     r.raise_for_status()
 
     j = r.json()
-    print(j)
 
     return j.get('success', False)
 
@@ -70,7 +69,7 @@ def sendmail(uuid):
         return "Limit exceeded. {}".format(str(e))
 
     if message.time_send:
-        return "Mail already send."
+        return "Mail already sent."
 
     if check_usercaptcha(request.form.get("g-recaptcha-response")):
         message.set_captcha_success()
@@ -97,7 +96,7 @@ def send_mail(email):
         return "Limit. {}".format(str(e))
 
     if request.method == 'GET':
-        return 'pls post'
+        return 'Please use POST with parameters.'
     else:
         if not request.form.get('replyto') or not request.form.get('name') or not request.form.get('message'):
             return render_template("params_missing.html")
@@ -132,6 +131,20 @@ def send_mail(email):
         message.email = email
         message.validate()
 
+        if app.config['USE_RECAPTCHA'] == 'false':
+            MailSender.send_mail(
+                address=message.email.address,
+                subject="Contact form",
+                message=render_template("email_template.txt", message=message),
+                replyto=message.replyto,
+            )
+            message.set_send()
+
+            db_session.add(message)
+            db_session.commit()
+
+            return render_template("mail_send.html", message=message)
+
         db_session.add(message)
         db_session.commit()
 
@@ -148,8 +161,3 @@ def verify_email(token):
     db_session.commit()
 
     return render_template("success_verify_email.html", email=email)
-
-
-@app.route('/l/')
-def l():
-    return render_template("list.html", messages=Message.query, e=Email.query)
