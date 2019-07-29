@@ -41,12 +41,12 @@ SERVER_ADDRESS=https://mailstatic.net
 DATABASE_URI=postgresql+psycopg2://postgres:postgres@db/postgres
 ```
 
-You need to provide details for your IMAP Server and it`s user so that the server can use a provided email account to forward the content of the POST request received from the HTML form.
+You need to provide details for your IMAP Server and it's user so that the server can use a provided email account to forward the content of the POST request received from the HTML form.
 Additionally you can configure your server adress, the URI of the database and your Google Recaptcha information (check out the [Googles Recaptcha Site](https://developers.google.com/recaptcha/docs/display) to receive your information).
 
 After providing the necessary information you can start the server.
 
-### Using local python on your machine
+### Using python on your machine
 
 1. Open your commandline and navigate inside the project folder.
 2. Run `pip install -r .\requirements.txt` to install neccessary dependencies (in case it's not working try `python -m pip install -r .\requirements.txtpip install -r .\requirements.txt`).
@@ -57,11 +57,11 @@ After providing the necessary information you can start the server.
 ### Using docker
 
 1. Open your commandline and navigate inside the project folder.
-2. Check if the provided `docker-compose.yml` file serves your needs. 
-3. Use `docker-compose up` to start the container.
+2. Check if the provided `docker-compose.yml` file serves your needs. (E.g. the run command)
+3. Use `docker-compose up` or `docker-compose -f docker-compose.prod.yml up` to start the container.
+4. You should see the following message: `Running on http://[::]:5000/ (Press CTRL+C to quit)`
 
-
-The server should now be up and running ready to receive input from your HTML forms!
+Alternatively you can also pull our image directly from the docker hub using docker pull taliox/mailstatic
 
 ## HTML setup
 
