@@ -4,7 +4,7 @@ services:
     build: .
     ports:
       - "5000:5000"
-    env_file: web.env
+    env_file: web-example.env
     depends_on:
       - db
     volumes:
