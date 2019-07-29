@@ -61,7 +61,7 @@ After providing the necessary information you can start the server.
 3. Use `docker-compose up` or `docker-compose -f docker-compose.prod.yml up` to start the container.
 4. You should see the following message: `Running on http://[::]:5000/ (Press CTRL+C to quit)`
 
-Alternatively you can also pull our image directly from the docker hub using docker pull taliox/mailstatic
+Alternatively you can also pull our image directly from the docker hub using docker pull taliox/mailstatic .
 
 ## HTML setup
 
