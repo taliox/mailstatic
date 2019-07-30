@@ -9,10 +9,10 @@ Amongst others, mailstatic is based on technologies like `flask`, `sqlalchemy` a
 Simple and straight forward:
 
 1. The POST request of your form is forwarded to your mailstatic server. 
-2. The server accepts the post request and it's parameters and sends a mail with the given information towards the provided adress.
+2. The server accepts the post request and its parameters and sends a mail with the given information towards the provided adress.
 3. The provided email address receives the mail that was created by the HTML form.
 
-## Usecases & Advantages
+## Use Cases & Advantages
 
 mailstatic really comes in handy if you want to provide a static HTML page with no actual backend.
 By using mailstatic, there is no need for additional technologies like Javascript or PHP which enables your project to have a much smaller code base and to be much thinner in total. If you want to build a lightweight page, mailstatic is an easy-to-use tool to process user inputs by simply adding HTML forms.
@@ -21,7 +21,7 @@ Additionally to a much thinner project, mailstatic brings a seperate system taki
 
 Due to security mechanisms like [Googles Recaptcha v2](https://developers.google.com/recaptcha/docs/display) an abuse of the service is prevented.
 
-Also there is a configurable ratelimit set for every endpoint which is capable of sending emails to prevent abuse. 
+To prevent abuse there is also a configurable rate limit set for every endpoint which is capable of sending emails. 
 
 # Setup
 
@@ -56,7 +56,7 @@ After providing the necessary information you can start the server.
 
 ### Using docker
 
-1. Open your commandline and navigate inside the project folder.
+1. Open your command-line and navigate inside the project folder.
 2. Check if the provided `docker-compose.yml` file serves your needs. (E.g. the run command)
 3. Use `docker-compose up` or `docker-compose -f docker-compose.prod.yml up` to start the container.
 4. You should see the following message: `Running on http://[::]:5000/ (Press CTRL+C to quit)`
@@ -79,7 +79,7 @@ To setup a HTML form on your webpage simply copy the following code:
 All input of this form is now forwarded to your server.
 
 # Contributing
-Pull requests for improvements of the project or it's documentation are also highly appreciated.
+Pull requests for improvements of the project or its documentation are also highly appreciated.
 
 # Licenses
 This library and its content is released under the [MIT License](https://choosealicense.com/licenses/mit/).
