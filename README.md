@@ -9,7 +9,7 @@ Amongst others, mailstatic is based on technologies like `flask`, `sqlalchemy` a
 Simple and straight forward:
 
 1. The POST request of your form is forwarded to your mailstatic server. 
-2. The server accepts the post request and its parameters and sends a mail with the given information towards the provided adress.
+2. The server accepts the post request and its parameters and sends a mail with the given information towards the provided address.
 3. The provided email address receives the mail that was created by the HTML form.
 
 ## Use Cases & Advantages
@@ -17,7 +17,7 @@ Simple and straight forward:
 mailstatic really comes in handy if you want to provide a static HTML page with no actual backend.
 By using mailstatic, there is no need for additional technologies like Javascript or PHP which enables your project to have a much smaller code base and to be much thinner in total. If you want to build a lightweight page, mailstatic is an easy-to-use tool to process user inputs by simply adding HTML forms.
 
-Additionally to a much thinner project, mailstatic brings a seperate system taking care of all the user input processing which can be scaled to any need. The server saves all of the received input in a PostgreSQL DB which allows you to track, retrace and process the received input.
+Additionally to a much thinner project, mailstatic brings a separate system taking care of all the user input processing which can be scaled to any need. The server saves all of the received input in a PostgreSQL DB which allows you to track, retrace and process the received input.
 
 Due to security mechanisms like [Googles Recaptcha v2](https://developers.google.com/recaptcha/docs/display) an abuse of the service is prevented.
 
@@ -29,7 +29,7 @@ To prevent abuse there is also a configurable rate limit set for every endpoint 
 
 There are two ways to run the server. But in any case you should make sure the server is configured correctly.
 
-The `web-example.env` provides neccessary environment variables that the server uses to process certain actions:
+The `web-example.env` provides necessary environment variables that the server uses to process certain actions:
 
 ```env
 RECAPTCHA_SITEKEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
@@ -42,14 +42,14 @@ DATABASE_URI=postgresql+psycopg2://postgres:postgres@db/postgres
 ```
 
 You need to provide details for your IMAP Server and it's user so that the server can use a provided email account to forward the content of the POST request received from the HTML form.
-Additionally you can configure your server adress, the URI of the database and your Google Recaptcha information (check out the [Googles Recaptcha Site](https://developers.google.com/recaptcha/docs/display) to receive your information).
+Additionally you can configure your server address, the URI of the database and your Google Recaptcha information (check out the [Googles Recaptcha Site](https://developers.google.com/recaptcha/docs/display) to receive your information).
 
 After providing the necessary information you can start the server.
 
 ### Using python on your machine
 
 1. Open your commandline and navigate inside the project folder.
-2. Run `pip install -r .\requirements.txt` to install neccessary dependencies (in case it's not working try `python -m pip install -r .\requirements.txtpip install -r .\requirements.txt`).
+2. Run `pip install -r .\requirements.txt` to install necessary dependencies (in case it's not working try `python -m pip install -r .\requirements.txtpip install -r .\requirements.txt`).
 3. Run `python .\runserver.py` to boot the server.
 4. You should see the following message `Running on http://[::]:5000/ (Press CTRL+C to quit)`.
 5. If you want to start the production server, start it with gunicorn:  `pipenv run pipenv run gunicorn mailstatic:app --bind 0.0.0.0:5000`. It may be a good idea [to use a reverse-proxy](http://docs.gunicorn.org/en/stable/deploy.html) like nginx in front of it to terminate SSL and buffer slow requests. Checkout the project for configuration examples.
